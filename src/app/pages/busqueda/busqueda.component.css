@@ -1,0 +1,718 @@
+  /* ---------- VARIABLES ---------- */
+
+:host {
+  --verde-agrario: #006b3c;
+  --verde-oscuro: #004d2a;
+  --verde-medio: #00834b;
+  --verde-claro: #eaf5ef;
+
+  --dorado: #f5c400;
+  --dorado-claro: #fff7cc;
+
+  --blanco: #ffffff;
+  --fondo: #f4f7f5;
+  --gris-100: #f8faf9;
+  --gris-200: #e5e9e7;
+  --gris-300: #d1d8d4;
+  --gris-600: #5d6762;
+  --gris-800: #26332d;
+
+  --rojo: #b42318;
+
+  --sombra-suave: 0 4px 15px rgba(0, 77, 42, 0.08);
+  --sombra-media: 0 8px 25px rgba(0, 77, 42, 0.12);
+
+  font-family:
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.busqueda {
+  width: min(1200px, calc(100% - 40px));
+  margin: 35px auto 60px;
+
+  padding: 0;
+
+  color: var(--gris-800);
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.busqueda > h1 {
+  position: relative;
+
+  margin: 0 0 30px;
+  padding: 24px 30px;
+
+  background: linear-gradient(
+    135deg,
+    var(--verde-oscuro),
+    var(--verde-agrario)
+  );
+
+  color: var(--blanco);
+
+  border-radius: 14px;
+
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  box-shadow: var(--sombra-media);
+}
+
+.busqueda > h1::after {
+  content: "";
+
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+
+  width: 55px;
+  height: 4px;
+
+  background: var(--dorado);
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   BUSCADOR
+   ========================================================= */
+
+.busqueda > div:first-of-type {
+  display: flex;
+  align-items: end;
+  gap: 15px;
+
+  padding: 24px 26px;
+
+  background: var(--blanco);
+
+  border: 1px solid var(--gris-200);
+  border-left: 5px solid var(--verde-agrario);
+
+  border-radius: 12px;
+
+  box-shadow: var(--sombra-suave);
+}
+
+.busqueda > div:first-of-type label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--verde-oscuro);
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+}
+
+.busqueda > div:first-of-type input {
+  width: 280px;
+
+  padding: 13px 15px;
+
+  border: 1px solid var(--gris-300);
+  border-radius: 8px;
+
+  background: var(--gris-100);
+
+  color: var(--gris-800);
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.busqueda > div:first-of-type input:focus {
+  background: var(--blanco);
+
+  border-color: var(--verde-agrario);
+
+  box-shadow: 0 0 0 3px rgba(0, 107, 60, 0.12);
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.busqueda button {
+  border: none;
+  border-radius: 8px;
+
+  padding: 13px 22px;
+
+  background: var(--verde-agrario);
+  color: var(--blanco);
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.busqueda button:hover {
+  background: var(--verde-oscuro);
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 12px rgba(0, 77, 42, 0.18);
+}
+
+.busqueda button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   MENSAJE DE ERROR
+   ========================================================= */
+
+.busqueda > p {
+  color: var(--gris-800);
+}
+
+.busqueda > p:first-of-type {
+  margin: 15px 0;
+
+  padding: 13px 16px;
+
+  background: #fff1f0;
+
+  border-left: 4px solid var(--rojo);
+
+  border-radius: 6px;
+
+  color: var(--rojo);
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DATOS ENCONTRADOS
+   ========================================================= */
+
+.busqueda > div:nth-of-type(2) {
+  margin-top: 25px;
+
+  padding: 26px;
+
+  background: var(--blanco);
+
+  border: 1px solid var(--gris-200);
+
+  border-radius: 12px;
+
+  box-shadow: var(--sombra-suave);
+}
+
+.busqueda h2 {
+  margin: 0 0 20px;
+
+  color: var(--verde-oscuro);
+
+  font-size: 18px;
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+}
+
+.busqueda > div:nth-of-type(2) p {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+
+  gap: 15px;
+
+  margin: 0;
+
+  padding: 11px 0;
+
+  border-bottom: 1px solid var(--gris-200);
+
+  font-size: 14px;
+}
+
+.busqueda > div:nth-of-type(2) p:last-child {
+  border-bottom: none;
+}
+
+.busqueda > div:nth-of-type(2) strong {
+  color: var(--verde-agrario);
+}
+
+
+/* =========================================================
+   SECCIONES DEL FORMULARIO
+   ========================================================= */
+
+.busqueda section {
+  margin: 25px 0;
+
+  padding: 25px;
+
+  background: var(--blanco);
+
+  border: 1px solid var(--gris-200);
+
+  border-radius: 12px;
+
+  box-shadow: var(--sombra-suave);
+}
+
+.busqueda section h2 {
+  position: relative;
+
+  padding-bottom: 12px;
+
+  margin-bottom: 20px;
+
+  border-bottom: 1px solid var(--gris-200);
+
+  font-size: 17px;
+}
+
+.busqueda section h2::before {
+  content: "";
+
+  display: inline-block;
+
+  width: 5px;
+  height: 18px;
+
+  margin-right: 10px;
+
+  vertical-align: -3px;
+
+  background: var(--dorado);
+
+  border-radius: 3px;
+}
+
+
+/* =========================================================
+   RADIO BUTTONS
+   ========================================================= */
+
+.busqueda section label {
+  display: flex;
+  align-items: center;
+
+  min-height: 42px;
+
+  margin: 8px 0;
+  padding: 10px 14px;
+
+  background: var(--gris-100);
+
+  border: 1px solid transparent;
+
+  border-radius: 8px;
+
+  color: var(--gris-800);
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.busqueda section label:hover {
+  background: var(--verde-claro);
+
+  border-color: rgba(0, 107, 60, 0.18);
+
+  transform: translateX(2px);
+}
+
+.busqueda section input[type="radio"] {
+  width: 18px;
+  height: 18px;
+
+  margin: 0 12px 0 0;
+
+  accent-color: var(--verde-agrario);
+
+  cursor: pointer;
+}
+
+
+/* Radio seleccionado */
+
+.busqueda section input[type="radio"]:checked {
+  accent-color: var(--verde-agrario);
+}
+
+.busqueda section label:has(input[type="radio"]:checked) {
+  background: var(--verde-claro);
+
+  border-color: rgba(0, 107, 60, 0.3);
+
+  color: var(--verde-oscuro);
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   RADIO DESHABILITADO
+   Especialmente FEDERACIÓN cuando es PPIB-ESPECIAL
+   ========================================================= */
+
+.busqueda section input[type="radio"]:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.4;
+}
+
+.busqueda section label:has(input[type="radio"]:disabled) {
+  background: #eeeeee;
+
+  border-color: #dddddd;
+
+  color: #999999;
+
+  cursor: not-allowed;
+
+  opacity: 0.7;
+}
+
+.busqueda section label:has(input[type="radio"]:disabled):hover {
+  background: #eeeeee;
+
+  border-color: #dddddd;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   SEPARADORES
+   ========================================================= */
+
+.busqueda hr {
+  height: 1px;
+
+  margin: 30px 0;
+
+  border: none;
+
+  background: var(--gris-200);
+}
+
+
+/* =========================================================
+   BOTÓN PRINCIPAL
+   "DEFINIR PROGRAMA"
+   ========================================================= */
+
+.busqueda > button {
+  display: block;
+
+  width: min(100%, 420px);
+
+  margin: 35px auto 25px;
+
+  padding: 17px 30px;
+
+  background: linear-gradient(
+    135deg,
+    var(--verde-oscuro),
+    var(--verde-agrario)
+  );
+
+  border: 2px solid var(--dorado);
+
+  border-radius: 10px;
+
+  color: var(--blanco);
+
+  font-size: 16px;
+  font-weight: 800;
+
+  letter-spacing: 0.8px;
+
+  box-shadow:
+    0 6px 18px rgba(0, 77, 42, 0.2),
+    0 0 0 0 rgba(245, 196, 0, 0.3);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    background 0.2s ease;
+}
+
+.busqueda > button:hover {
+  background: linear-gradient(
+    135deg,
+    var(--verde-agrario),
+    var(--verde-medio)
+  );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 9px 25px rgba(0, 77, 42, 0.25),
+    0 0 0 4px rgba(245, 196, 0, 0.15);
+}
+
+.busqueda > button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESULTADO FINAL
+   LA FRASE GENERADA ES EL ELEMENTO PRINCIPAL
+   ========================================================= */
+
+.busqueda > div:has(> h2 + p) {
+  position: relative;
+
+  margin: 30px 0;
+
+  padding: 30px 35px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--verde-oscuro),
+      var(--verde-agrario)
+    );
+
+  border-radius: 14px;
+
+  border: 2px solid var(--dorado);
+
+  box-shadow:
+    0 10px 30px rgba(0, 77, 42, 0.2),
+    0 0 0 5px rgba(245, 196, 0, 0.08);
+
+  overflow: hidden;
+}
+
+.busqueda > div:has(> h2 + p)::before {
+  content: "";
+
+  position: absolute;
+
+  top: -60px;
+  right: -60px;
+
+  width: 160px;
+  height: 160px;
+
+  background: rgba(245, 196, 0, 0.12);
+
+  border-radius: 50%;
+}
+
+.busqueda > div:has(> h2 + p) h2 {
+  position: relative;
+
+  margin-bottom: 15px;
+
+  color: var(--dorado);
+
+  font-size: 14px;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+}
+
+.busqueda > div:has(> h2 + p) p {
+  position: relative;
+
+  margin: 0;
+
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border-radius: 9px;
+
+  color: var(--verde-oscuro);
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  line-height: 1.6;
+
+  text-align: center;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   VALORES / DEBUG
+   ========================================================= */
+
+.busqueda > p strong {
+  color: var(--verde-agrario);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .busqueda {
+    width: calc(100% - 24px);
+
+    margin-top: 20px;
+  }
+
+  .busqueda > h1 {
+    padding: 20px;
+
+    font-size: 23px;
+  }
+
+  .busqueda > div:first-of-type {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .busqueda > div:first-of-type input {
+    width: auto;
+  }
+
+  .busqueda > div:first-of-type button {
+    width: 100%;
+  }
+
+  .busqueda > div:nth-of-type(2) p {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .busqueda section {
+    padding: 20px;
+  }
+
+  .busqueda > button {
+    width: 100%;
+  }
+
+  .busqueda > div:has(> h2 + p) p {
+    font-size: 17px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .busqueda {
+    width: calc(100% - 16px);
+
+    margin-top: 12px;
+  }
+
+  .busqueda > h1 {
+    padding: 18px;
+
+    font-size: 20px;
+
+    border-radius: 10px;
+  }
+
+  .busqueda > h1::after {
+    left: 18px;
+  }
+
+  .busqueda > div:nth-of-type(2),
+  .busqueda section {
+    padding: 17px;
+  }
+
+  .busqueda section label {
+    align-items: flex-start;
+
+    font-size: 13px;
+  }
+
+  .busqueda > div:has(> h2 + p) {
+    padding: 22px 17px;
+  }
+
+  .busqueda > div:has(> h2 + p) p {
+    padding: 16px;
+
+    font-size: 16px;
+  }
+
+  /* ========================================================= BOTÓN COPIAR FRASE ========================================================= */
+  .resultado-frase {
+    text-align: center;
+  }
+
+  .btn-copiar {
+    margin-top: 20px !important;
+    padding: 12px 24px !important;
+    background: var(--dorado) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: var(--verde-oscuro) !important;
+    font-size: 14px !important;
+    font-weight: 800 !important; cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-copiar:hover {
+    background: #ffd83d !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18) !important;
+  }
+
+  .btn-copiar:active {
+    transform: translateY(0);
+  }
+
+  .mensaje-copiado {
+    display: block;
+    margin-top: 12px;
+    color: var(--dorado);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+}

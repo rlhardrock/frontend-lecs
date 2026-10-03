@@ -1,0 +1,262 @@
+<div class="busqueda">
+
+  <h1>BUSCAR DESTINO</h1>
+
+  <div>
+    <label for="codigo">CÓDIGO</label>
+
+    <input
+      id="codigo"
+      type="text"
+      [(ngModel)]="codigo"
+      placeholder="INGRESAR CÓDIGO DESTINO"
+    />
+
+    <button type="button" (click)="buscar()">
+      BUSCAR
+    </button>
+  </div>
+
+  @if (error) {
+    <p>{{ error }}</p>
+  }
+
+  @if (resultado) {
+
+    <div>
+      <h2>DATOS ENCONTRADOS</h2>
+      <p>
+        <strong>DESTINO:</strong>
+        {{ resultado.destino?.destino }}
+      </p>
+      <p>
+        <strong>PRODUCTO:</strong>
+        {{ resultado.destino?.producto }}
+      </p>
+      <p>
+        <strong>LÍNEA:</strong>
+        {{ resultado.destino?.linea }}
+      </p>
+      <p>
+        <strong>ACTIVIDAD:</strong>
+        {{ resultado.destino?.actividad }}
+      </p>
+      <p>
+        <strong>PROGRAMA GENERAL:</strong>
+        {{ resultado.destino?.programa }}
+      </p>
+      <p>
+        <strong>PROGRAMAS LEC VIGENTES:</strong>
+        {{ resultado.lec.lec }}
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- SECCIÓN 1 -->
+    <section>
+      <h2>TIPO PRODUCTOR</h2>
+
+      <label>
+        <input
+          type="radio"
+          name="tipoProductor"
+          value="PPIB-ORDINARIO"
+          [(ngModel)]="tipoProductor"
+        >
+        PPIB-ORDINARIO (MUJER, JOVEN, CAMP)
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="tipoProductor"
+          value="PPIB-ESPECIAL"
+          [(ngModel)]="tipoProductor"
+        >
+        PPIB-ESPECIAL (DESP, VICT, REINCOR, DESMOV, ETNI)
+      </label>
+
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section>
+      <h2>PROGRAMA</h2>
+
+      <label>
+        <input
+          type="radio"
+          name="programa"
+          value="CRÉDITO ORDINARIO"
+          [(ngModel)]="programa"
+        >
+        ORDINARIAS
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="programa"
+          value="SITUACIÓN ESPECIAL"
+          [(ngModel)]="programa"
+        >
+        ESPECIALES
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="programa"
+          value="LEC DESARROLLO PRODUCTIVO"
+          [(ngModel)]="programa"
+        >
+        DESARROLLO PRODUCTIVO
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="programa"
+          value="LEC REFORMA AGRARIA"
+          [(ngModel)]="programa"
+        >
+        REFORMA AGRARIA
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="programa"
+          value="FNC"
+          [(ngModel)]="programa"
+        >
+        FEDERACIÓN DE CAFETEROS
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="programa"
+          value="INCENTIVO CAPITALIZACIÓN GESTIÓN RIESGOS"
+          [(ngModel)]="programa"
+        >
+        I.C.G.R.
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="programa"
+          value="LÍNEA RESTABLECIMIENTO PRODUCTIVO"
+          [(ngModel)]="programa"
+        >
+        RESTABLECIMIENTO PECRP_FAG-90%
+      </label>
+
+    </section>
+
+    <!-- SECCIÓN 3 -->
+    <section>
+      <h2>ENFOQUE</h2>
+
+      <label>
+        <input
+          type="radio"
+          name="enfoque"
+          value="ENFOQUE ÉTNICO"
+          [(ngModel)]="enfoque"
+        >
+        ÉTNICO
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="enfoque"
+          value="ENFOQUE INDIVIDUAL"
+          [(ngModel)]="enfoque"
+        >
+        INDIVIDUAL
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="enfoque"
+          value="ENFOQUE ASOCIATIVO"
+          [(ngModel)]="enfoque"
+        >
+        ASOCIATIVO
+      </label>
+
+    </section>
+
+    <!-- SECCIÓN 4 -->
+    <section>
+      <h2>SNCA</h2>
+
+      <label>
+        <input
+          type="radio"
+          name="snca"
+          value="PRIMERA VEZ"
+          [(ngModel)]="snca"
+        >
+        IGUAL A CERO Ó INCLUSIÓN
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="snca"
+          value="ACREDITADO"
+          [(ngModel)]="snca"
+        >
+        IGUAL-MAYOR A UNO Ó ACREDITADO
+      </label>
+    </section>
+
+
+    <hr>
+
+    <button type="button" (click)="generarFrase()">
+      DEFINIR PROGRAMA
+    </button>
+
+    @if (frase) {
+      <div class="resultado-frase">
+
+        <h2>PROGRAMA DEFINIDO</h2>
+
+        <p>{{ frase }}</p>
+
+        <button
+          type="button"
+          class="btn-copiar"
+          (click)="copiarFrase()"
+        >
+          📋 COPIAR PROGRAMA
+        </button>
+
+        @if (copiado) {
+          <span class="mensaje-copiado">
+        ✓ PROGRAMA COPIADO
+      </span>
+        }
+
+      </div>
+    }
+
+    <hr>
+
+    <p>
+      <strong>VALORES EN TRAZA:</strong>
+    </p>
+
+    <p>Tipo productor: {{ tipoProductor }}</p>
+    <p>Programa: {{ programa }}</p>
+    <p>Enfoque: {{ enfoque }}</p>
+    <p>SNCA: {{ snca }}</p>
+
+  }
+</div>
