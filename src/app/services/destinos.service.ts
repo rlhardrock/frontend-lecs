@@ -24,7 +24,7 @@ export class DestinosService {
 
   private readonly http = inject(HttpClient);
 
-  private readonly apiUrl = 'http://localhost:3000';
+  private readonly apiUrl = 'https://backend-lecs-production.up.railway.app';
 
   buscarPorDestino(codigo: string): Observable<DestinoResponse> {
     return this.http.get<DestinoResponse>(
